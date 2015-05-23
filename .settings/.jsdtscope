@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="plugins/cordova-plugin-device/src/windows/|**/node_modules/*|plugins/cordova-plugin-device/src/ubuntu/|www/lib/ionic/js/angular-ui/|plugins/cordova-plugin-device/src/firefoxos/|plugins/cordova-plugin-device/src/tizen/|**/*.min.js|plugins/cordova-plugin-device/www/|plugins/cordova-plugin-whitelist/|plugins/com.ionic.keyboard/src/blackberry10/|plugins/cordova-plugin-device/src/browser/|plugins/cordova-plugin-splashscreen/src/blackberry10/|plugins/cordova-plugin-splashscreen/www/windows/|plugins/cordova-plugin-splashscreen/src/tizen/|plugins/cordova-plugin-console/www/|plugins/cordova-plugin-splashscreen/tests/|plugins/cordova-plugin-device/tests/|hooks/after_prepare/|plugins/com.ionic.keyboard/www/|**/bower_components/*|plugins/cordova-plugin-splashscreen/www/|www/js/|plugins/cordova-plugin-device/src/blackberry10/|www/lib/ionic/js/|plugins/cordova-plugin-splashscreen/src/browser/|www/lib/ionic/js/angular/" kind="src" path="laxstats"/>
+	<classpathentry excluding="**/node_modules/*|**/bower_components/*|**/*.min.js" kind="src" path="laxstats/hooks/after_prepare"/>
+	<classpathentry excluding="**/node_modules/*|**/bower_components/*|**/*.min.js" kind="src" path="laxstats/plugins/com.ionic.keyboard/src/blackberry10"/>
+	<classpathentry excluding="**/node_modules/*|**/bower_components/*|**/*.min.js" kind="src" path="laxstats/plugins/com.ionic.keyboard/www"/>
+	<classpathentry excluding="**/node_modules/*|**/bower_components/*|**/*.min.js" kind="src" path="laxstats/plugins/cordova-plugin-console/www"/>
+	<classpathentry excluding="**/node_modules/*|**/bower_components/*|**/*.min.js" kind="src" path="laxstats/plugins/cordova-plugin-device/src/blackberry10"/>
+	<classpathentry excluding="**/node_modules/*|**/bower_components/*|**/*.min.js" kind="src" path="laxstats/plugins/cordova-plugin-device/src/browser"/>
+	<classpathentry excluding="**/node_modules/*|**/bower_components/*|**/*.min.js" kind="src" path="laxstats/plugins/cordova-plugin-device/src/firefoxos"/>
+	<classpathentry excluding="**/node_modules/*|**/bower_components/*|**/*.min.js" kind="src" path="laxstats/plugins/cordova-plugin-device/src/tizen"/>
+	<classpathentry excluding="**/node_modules/*|**/bower_components/*|**/*.min.js" kind="src" path="laxstats/plugins/cordova-plugin-device/src/ubuntu"/>
+	<classpathentry excluding="**/node_modules/*|**/bower_components/*|**/*.min.js" kind="src" path="laxstats/plugins/cordova-plugin-device/src/windows"/>
+	<classpathentry excluding="**/node_modules/*|**/bower_components/*|**/*.min.js" kind="src" path="laxstats/plugins/cordova-plugin-device/tests"/>
+	<classpathentry excluding="**/node_modules/*|**/bower_components/*|**/*.min.js" kind="src" path="laxstats/plugins/cordova-plugin-device/www"/>
+	<classpathentry excluding="**/node_modules/*|**/bower_components/*|**/*.min.js" kind="src" path="laxstats/plugins/cordova-plugin-splashscreen/src/blackberry10"/>
+	<classpathentry excluding="**/node_modules/*|**/bower_components/*|**/*.min.js" kind="src" path="laxstats/plugins/cordova-plugin-splashscreen/src/browser"/>
+	<classpathentry excluding="**/node_modules/*|**/bower_components/*|**/*.min.js" kind="src" path="laxstats/plugins/cordova-plugin-splashscreen/src/tizen"/>
+	<classpathentry excluding="**/node_modules/*|**/bower_components/*|**/*.min.js" kind="src" path="laxstats/plugins/cordova-plugin-splashscreen/tests"/>
+	<classpathentry excluding="**/node_modules/*|**/bower_components/*|windows/|**/*.min.js" kind="src" path="laxstats/plugins/cordova-plugin-splashscreen/www"/>
+	<classpathentry excluding="**/node_modules/*|**/bower_components/*|**/*.min.js" kind="src" path="laxstats/plugins/cordova-plugin-splashscreen/www/windows"/>
+	<classpathentry excluding="**/node_modules/*|**/bower_components/*|**/*.min.js" kind="src" path="laxstats/plugins/cordova-plugin-whitelist"/>
+	<classpathentry excluding="**/node_modules/*|**/bower_components/*|**/*.min.js" kind="src" path="laxstats/www/js"/>
+	<classpathentry excluding="**/node_modules/*|angular-ui/|angular/|**/bower_components/*|**/*.min.js" kind="src" path="laxstats/www/lib/ionic/js"/>
+	<classpathentry excluding="**/node_modules/*|**/bower_components/*|**/*.min.js" kind="src" path="laxstats/www/lib/ionic/js/angular"/>
+	<classpathentry excluding="**/node_modules/*|**/bower_components/*|**/*.min.js" kind="src" path="laxstats/www/lib/ionic/js/angular-ui"/>
+	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path=""/>
+</classpath>
