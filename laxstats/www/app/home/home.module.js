@@ -1,5 +1,5 @@
 (function() {
     'use strict';
 
-    angular.module('main', []);
+    angular.module('main.home', []);
 })();

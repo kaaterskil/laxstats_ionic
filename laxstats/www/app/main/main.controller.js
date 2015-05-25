@@ -1,11 +1,14 @@
 (function() {
     'use strict';
 
-    function mainController($scope) {
-        // Noop
+    function mainController($scope, $ionicSideMenuDelegate) {
+
+        $scope.toggleLeft = function() {
+            $ionicSideMenuDelegate.toggleLeft();
+        }
     }
 
-    mainController.$inject = [ '$scope' ]
+    mainController.$inject = [ '$scope', '$ionicSideMenuDelegate' ]
 
-    angular.module('laxstats.main').controller('MainCtrl', mainController);
+    angular.module('main').controller('MainCtrl', mainController);
 })();

@@ -4,7 +4,7 @@
     function configure($urlRouterProvider, $ionicConfigProvider) {
         // Add initial config stuff here such as view caching refinements.
         $ionicConfigProvider.views.maxCache(10); // Default is 10 anyway.
-        $urlRouterProvider.otherwise('/'); // Default route for ui-router
+        $urlRouterProvider.when('', '/home'); // Default route for ui-router
     }
 
     function runApp($ionicPlatform) {
