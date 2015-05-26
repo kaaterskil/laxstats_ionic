@@ -1,0 +1,28 @@
+<ion-view view-title="Login">
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    
+    <ion-content>
+        <form class="list">
+            <label class="item item-input">
+                <span class="input-label">Username</span> 
+                <input type="text" 
+                       ng-model="user.username" 
+                       required />
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Password</span> 
+                <input type="password" 
+                       autocomplete="off" 
+                       ng-model="user.password" 
+                       required />
+            </label>
+            <div class="padding">
+                <button class="button button-block button-positive"
+                        ng-click="login()">Login</button>
+            </div>
+        </form>
+        <div class="">{{message}}</div>
+    </ion-content>
+</ion-view>

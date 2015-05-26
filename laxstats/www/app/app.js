@@ -18,5 +18,5 @@
     }
 
     angular.module('laxstats', [ 'laxstats.core', 'main', 'main.home', 'main.scoreboard',
-        'main.schedule', 'main.fields' ]);
+        'main.schedule', 'main.fields', 'main.login' ]);
 })();

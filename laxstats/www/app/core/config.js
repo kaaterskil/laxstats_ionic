@@ -1,10 +1,12 @@
 (function() {
     'use strict';
 
-    function configure($urlRouterProvider, $ionicConfigProvider) {
+    function configure($urlRouterProvider, $httpProvider, $ionicConfigProvider) {
         // Add initial config stuff here such as view caching refinements.
         $ionicConfigProvider.views.maxCache(10); // Default is 10 anyway.
-        $urlRouterProvider.when('', '/home'); // Default route for ui-router
+        $urlRouterProvider.when('', '/main/home'); // Default route for ui-router
+
+        $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
     }
 
     function runApp($ionicPlatform) {
