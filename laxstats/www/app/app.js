@@ -18,5 +18,7 @@
     }
 
     angular.module('laxstats', [ 'laxstats.core', 'main', 'main.home', 'main.scoreboard',
-        'main.schedule', 'main.fields', 'main.login', 'admin', 'admin.home' ]);
+        'main.schedule', 'main.fields', 'main.login', 'admin', 'admin.home', 'admin.games',
+        'admin.teams', 'admin.people', 'admin.blog', 'admin.playbook', 'admin.media',
+        'admin.sites', 'admin.seasons', 'admin.violations', 'admin.users' ]);
 })();
