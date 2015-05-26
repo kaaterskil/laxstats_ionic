@@ -6,7 +6,7 @@
             url : '/home',
             views : {
                 'menuContent' : {
-                    templateUrl : 'app/home/home.html',
+                    templateUrl : 'app/main/home/home.html',
                     controller : 'HomeCtrl'
                 }
             }

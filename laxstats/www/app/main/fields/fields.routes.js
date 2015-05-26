@@ -6,7 +6,7 @@
             url : '/fields',
             views : {
                 'menuContent' : {
-                    templateUrl : 'app/fields/fields.html',
+                    templateUrl : 'app/main/fields/fields.html',
                     controller : 'FieldsCtrl'
                 }
             }

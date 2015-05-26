@@ -6,7 +6,7 @@
             url : '/schedule',
             views : {
                 'menuContent' : {
-                    templateUrl : 'app/schedule/schedule.html',
+                    templateUrl : 'app/main/schedule/schedule.html',
                     controller : 'ScheduleCtrl'
                 }
             }

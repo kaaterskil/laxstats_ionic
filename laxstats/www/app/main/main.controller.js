@@ -5,10 +5,9 @@
 
         $scope.toggleLeft = function() {
             $ionicSideMenuDelegate.toggleLeft();
-        }
+        };
     }
 
-    mainController.$inject = [ '$scope', '$ionicSideMenuDelegate' ]
-
-    angular.module('main').controller('MainCtrl', mainController);
+    angular.module('main').controller('MainCtrl',
+        [ '$scope', '$ionicSideMenuDelegate', mainController ]);
 })();

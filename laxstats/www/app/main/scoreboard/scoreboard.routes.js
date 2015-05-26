@@ -6,7 +6,7 @@
             url : '/scoreboard',
             views : {
                 'menuContent' : {
-                    templateUrl : 'app/scoreboard/scoreboard.html',
+                    templateUrl : 'app/main/scoreboard/scoreboard.html',
                     controller : 'ScoreboardCtrl'
                 }
             }
