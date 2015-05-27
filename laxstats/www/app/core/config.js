@@ -9,7 +9,7 @@
         $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
     }
 
-    function runApp($ionicPlatform) {
+    function runApp($ionicPlatform, AuthService) {
         $ionicPlatform.ready(function() {
             if (window.cordova && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -26,6 +26,8 @@
         // I sometimes have to initialize the cache within a factory/service as it is required
         // immediately.
         // DSCacheFactory("codes", { storageMode: 'localStorage' });
+
+        AuthService.init();
     }
 
     angular.module('laxstats.core').run(runApp).config(configure);
