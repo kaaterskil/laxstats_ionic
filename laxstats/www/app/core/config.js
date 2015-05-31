@@ -30,5 +30,5 @@
         AuthService.init();
     }
 
-    angular.module('laxstats.core').run(runApp).config(configure);
+    angular.module('laxstats.core').config(configure).run(runApp);
 })();

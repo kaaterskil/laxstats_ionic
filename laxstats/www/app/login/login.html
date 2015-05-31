@@ -4,23 +4,25 @@
     </ion-nav-buttons>
     
     <ion-content>
-        <form class="list">
+        <form class="list" role="form" ng-submit="login()">
             <label class="item item-input">
                 <span class="input-label">Username</span> 
                 <input type="text" 
-                       ng-model="user.username" 
+                       id="username"
+                       ng-model="credentials.username" 
                        required />
             </label>
             <label class="item item-input">
                 <span class="input-label">Password</span> 
                 <input type="password" 
-                       autocomplete="off" 
-                       ng-model="user.password" 
+                       autocomplete="off"
+                       id="password" 
+                       ng-model="credentials.password" 
                        required />
             </label>
             <div class="padding">
-                <button class="button button-block button-positive"
-                        ng-click="login()">Login</button>
+                <button type='submit' 
+                        class="button button-block button-positive">Login</button>
             </div>
         </form>
         <div class="" ng-show="error">{{message}}</div>

@@ -4,7 +4,7 @@
     function loginController($scope, AuthService) {
         $scope.error = false;
         $scope.message = '';
-        $scope.user = {
+        $scope.credentials = {
             username : null,
             password : null
         };
@@ -14,7 +14,7 @@
         };
 
         $scope.login = function() {
-            AuthService.authenticate($scope.user);
+            AuthService.authenticate($scope.credentials);
             if (AuthService.authenticated) {
                 $scope.message = 'Login succeeded';
                 $scope.error = false;

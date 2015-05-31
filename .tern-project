@@ -1,1 +1,1 @@
-{"ide":{"scriptPaths":[{"type":"FOLDER","path":"laxstats/www/js"},{"type":"FOLDER","path":"laxstats/www/templates"}]},"plugins":{"guess-types":{},"jshint":{},"jasmine":{},"node":{},"angular":{},"grunt":{}},"libs":["ecma5","browser","jquery"]}
+{"ide":{"scriptPaths":[{"type":"FOLDER","path":"laxstats/www/templates"}]},"plugins":{"guess-types":{},"jshint":{},"jasmine":{},"node":{},"angular":{},"grunt":{}},"libs":["ecma5","browser","jquery"]}

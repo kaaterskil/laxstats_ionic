@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    function authService($rootScope, $http, $location, SERVER_URL) {
+    function authService($rootScope, $http, $location, SessionService, SERVER_URL) {
         var auth = {
             authenticated : false,
             loginPath : '/main/login',
@@ -37,7 +37,7 @@
         };
 
         auth.authenticate = function(credentials) {
-            var url = SERVER_URL + '/user', headers = {}, config, encoded;
+            var url = SERVER_URL + '/authenticate', headers = {}, config, encoded;
 
             if (credentials && credentials.username) {
                 encoded = 'Basic ' + btoa(credentials.username + ':' + credentials.password);
@@ -51,30 +51,29 @@
             };
 
             $http.get(url, config).success(function(data) {
-                if (data.name) {
+                if (data.principal.name) {
                     auth.authenticated = true;
+                    SessionService.createSession(data.principal, data.sessionId);
                 }
                 else {
                     auth.authenticated = false;
                 }
                 callback(auth.authenticated);
-            }).error(function() {
-                auth.authenticated = false;
-                callback(false);
             });
         };
 
         auth.clear = function() {
             var url = SERVER_URL + '/logout';
 
-            auth.authenticated = false;
-            $location.path(auth.homePath);
             $http.post(url);
+            auth.authenticated = false;
+            SessionService.destroySession();
+            $location.path(auth.homePath);
         };
 
         return auth;
     }
 
     angular.module('laxstats.core').factory('AuthService',
-        [ '$rootScope', '$http', '$location', 'SERVER_URL', authService ]);
+        [ '$rootScope', '$http', '$location', 'SessionService', 'SERVER_URL', authService ]);
 })();
