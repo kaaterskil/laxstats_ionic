@@ -3,9 +3,9 @@
 
     function requestInterceptor(SessionService) {
         function request(config) {
-            var token = SessionService.getSecurityToken();
-            if (token) {
-                config.headers['x-auth-token'] = token;
+            var authToken = SessionService.getSecurityToken();
+            if (authToken) {
+                config.headers['X-Auth-Token'] = authToken;
             }
             return config;
         }

@@ -1,7 +1,8 @@
 (function() {
     'use strict';
 
-    function authService($rootScope, $http, $location, SessionService, SERVER_URL) {
+    function authService($rootScope, $http, $cookies, $location, $timeout, SessionService,
+        SERVER_URL) {
         var auth = {
             authenticated : false,
             loginPath : '/main/login',
@@ -21,8 +22,10 @@
         }
 
         function enter() {
+            var isAuthenticated = SessionService.isAuthenticated();
+
             // Match either a single slash or /main/some-page
-            if (!$location.path().match(/^(\/|\/main.*)$/)) {
+            if (!isAuthenticated && !$location.path().match(/^(\/|\/main.*)$/)) {
                 auth.currentPath = $location.path();
                 if (!auth.authenticated) {
                     $location.path(auth.loginPath);
@@ -37,43 +40,48 @@
         };
 
         auth.authenticate = function(credentials) {
-            var url = SERVER_URL + '/authenticate', headers = {}, config, encoded;
+            var loginUrl = SERVER_URL + '/api/login';
 
-            if (credentials && credentials.username) {
-                encoded = 'Basic ' + btoa(credentials.username + ':' + credentials.password);
-                headers = {
-                    authorization : encoded
-                };
-            }
+            $http.post(loginUrl, {
+                username : credentials.username,
+                password : credentials.password
+            }).success(function(result, status, headers) {
+                var token = headers('X-AUTH-TOKEN');
 
-            config = {
-                headers : headers
-            };
-
-            $http.get(url, config).success(function(data) {
-                if (data.principal.name) {
+                auth.authenticated = false;
+                if (token) {
                     auth.authenticated = true;
-                    SessionService.createSession(data.principal, data.sessionId);
-                }
-                else {
-                    auth.authenticated = false;
+                    SessionService.setSecurityToken(token);
                 }
                 callback(auth.authenticated);
+            }).error(function(result) {
+                console.log('error: ');
+                console.log(result);
+                auth.authenticated = false;
             });
         };
 
         auth.clear = function() {
             var url = SERVER_URL + '/logout';
 
-            $http.post(url);
-            auth.authenticated = false;
-            SessionService.destroySession();
-            $location.path(auth.homePath);
+            $http.post(url, {}).success(function() {
+                console.log('logout succeeded');
+
+                auth.authenticated = false;
+                SessionService.destroySession();
+                $location.path(auth.homePath);
+            }).error(function(response) {
+                console.log(response);
+                auth.authenticated = false;
+                SessionService.destroySession();
+            });
         };
 
         return auth;
     }
 
-    angular.module('laxstats.core').factory('AuthService',
-        [ '$rootScope', '$http', '$location', 'SessionService', 'SERVER_URL', authService ]);
+    angular.module('laxstats.core').factory(
+        'AuthService',
+        [ '$rootScope', '$http', '$cookies', '$location', '$timeout', 'SessionService',
+            'SERVER_URL', authService ]);
 })();

@@ -7,6 +7,12 @@
         $urlRouterProvider.when('', '/main/home'); // Default route for ui-router
 
         $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
+
+        // For sharing cookies with cross origin requests
+        // The $httpProvider.defaults.xsrfCookieName value defaults to XSRF-TOKEN
+        // The $httpProvider.defaults.xsrfHeaderName value defaults to X-XSRF-TOKEN
+        $httpProvider.defaults.withCredentials = true;
+
     }
 
     function runApp($ionicPlatform, AuthService) {

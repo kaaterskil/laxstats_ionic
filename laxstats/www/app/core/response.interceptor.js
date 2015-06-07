@@ -2,9 +2,9 @@
     'use strict';
 
     function responseInterceptor($rootScope, $q, HttpBuffer) {
-        function response(response) {
-            if (response.status < 400) { return response; }
-            return $q.reject(response);
+        function response(resp) {
+            if (resp.status < 400) { return resp; }
+            return $q.reject(resp);
         }
 
         function responseError(rejection) {

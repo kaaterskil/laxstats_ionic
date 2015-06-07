@@ -2,7 +2,7 @@
     'use strict';
 
     function httpBuffer($injector) {
-        var buffer = [], $http = null;
+        var buffer = {}, queue = [], $http = null;
 
         function retryHttpRequest(config, deferred) {
             function onSuccess(response) {
@@ -19,36 +19,32 @@
             $http(config).then(onSuccess, onError);
         }
 
-        function append(config, deferred) {
-            buffer.push({
+        buffer.append = function(config, deferred) {
+            queue.push({
                 config : config,
                 deferred : deferred
             });
-        }
+        };
 
-        function rejectAll(reason) {
+        buffer.rejectAll = function(reason) {
             var i = 0;
             if (reason) {
-                for (i; i < buffer.length; ++i) {
-                    buffer[i].deferred.reject(reason);
+                for (i; i < queue.length; ++i) {
+                    queue[i].deferred.reject(reason);
                 }
             }
-            buffer = [];
-        }
-
-        function retryAll(updater) {
-            var i = 0;
-            for (i; i < buffer.length; ++i) {
-                retryHttpRequest(buffer[i].config, buffer[i].deferred);
-            }
-            buffer = [];
-        }
-
-        return {
-            append : append,
-            rejectAll : rejectAll,
-            retryAll : retryAll
+            queue = [];
         };
+
+        buffer.retryAll = function(updater) {
+            var i = 0;
+            for (i; i < queue.length; ++i) {
+                retryHttpRequest(queue[i].config, queue[i].deferred);
+            }
+            queue = [];
+        };
+
+        return buffer;
     }
 
     angular.module('laxstats.core').factory('HttpBuffer', [ '$injector', httpBuffer ]);

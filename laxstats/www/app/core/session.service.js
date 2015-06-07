@@ -6,21 +6,39 @@
         /*---------- Private methods ----------*/
 
         function getSessionValue(name) {
-            if (sessionStorage.getItem(name)) { return JSON.parse(sessionStorage.getItem(name)); }
-            return undefined;
+            if (!name) { return undefined; }
+            return localStorage.getItem(name);
         }
 
-        function setSessionValue(name, value) {
-            sessionStorage.setItem(name, value !== undefined ? JSON.stringify(value) : undefined);
+        function setSessionValue(name, newValue) {
+            var oldValue;
+
+            if (!name) { return undefined; }
+
+            oldValue = localStorage.getItem(name);
+            localStorage.setItem(name, newValue);
+            return oldValue;
         }
 
         function clear() {
-            sessionStorage.clear();
+            localStorage.clear();
         }
 
         /*---------- Public methods ----------*/
 
-        function createSession(data, token) {
+        function getSecurityToken() {
+            return getSessionValue('laxstats.token');
+        }
+
+        function setSecurityToken(authToken) {
+            if (authToken) {
+                setSessionValue('laxstats.authenticated', true);
+                return setSessionValue('laxstats.token', authToken);
+            }
+            return null;
+        }
+
+        function createSession(data, authToken) {
             if (data) {
                 setSessionValue('laxstats.authenticated', data.authenticated);
                 setSessionValue('laxstats.authorities', data.authorities);
@@ -29,7 +47,7 @@
                 setSessionValue('laxstats.username', data.name);
                 setSessionValue('laxstats.principal', data.principal);
                 setSessionValue('laxstats.sessionId', data.details.sessionId);
-                setSessionValue('laxstats.token', token);
+                setSessionValue('laxstats.token', authToken);
                 return true;
             }
             return false;
@@ -45,10 +63,6 @@
 
         function getUser() {
             return getSessionValue('laxstats.principal');
-        }
-
-        function getSecurityToken() {
-            return getSessionValue('laxstats.token');
         }
 
         function getSessionId() {
@@ -72,10 +86,11 @@
         }
 
         return {
+            getSecurityToken : getSecurityToken,
+            setSecurityToken : setSecurityToken,
             createSession : createSession,
             destroySession : destroySession,
             getCredentials : getCredentials,
-            getSecurityToken : getSecurityToken,
             getSessionId : getSessionId,
             getUsername : getUsername,
             getUserRole : getUserRole,
