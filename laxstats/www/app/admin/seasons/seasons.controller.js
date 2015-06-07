@@ -1,9 +1,10 @@
 (function() {
     'use strict';
 
-    function seasonsController($scope) {
-        // Noop
+    function seasonsController($scope, Season) {
+        $scope.seasons = Season.query();
     }
 
-    angular.module('admin.seasons').controller('SeasonsCtrl', [ '$scope', seasonsController ]);
+    angular.module('admin.seasons').controller('SeasonsCtrl',
+        [ '$scope', 'Season', seasonsController ]);
 })();

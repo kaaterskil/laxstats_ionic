@@ -1,0 +1,39 @@
+<ion-view title="{{season.description}} Season">
+    <ion-content>
+        <form class="list" role="form">
+            <input type="hidden" 
+                   id="id" 
+                   ng-model="season.id">
+            <label class="item item-input">
+                <span class="input-label">Description</span>
+                <input type="text" 
+                       id="description" 
+                       ng-model="season.description" 
+                       required>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Start date</span>
+                <input type="date" 
+                       id="startsOn" 
+                       ng-model="season.startsOn" 
+                       required>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">End date</span>
+                <input type="date" 
+                       id="endsOn" 
+                       ng-model="season.endsOn">
+            </label>
+            <div class="padding">
+                <button type="submit" 
+                        class="button button-block button-positive"
+                        ng-click="update()" 
+                        ng-if="season.id.length > 0">Save</button>
+                <button type="submit" 
+                        class="button button-block button-positive"
+                        ng-click="create()" 
+                        ng-if="season.id.length == 0">Create</button>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>
