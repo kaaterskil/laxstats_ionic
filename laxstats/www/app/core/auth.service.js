@@ -8,7 +8,7 @@
             loginPath : '/main/login',
             logoutPath : '/main/logout',
             successPath : '/admin/home',
-            homePath : 'main/home',
+            homePath : '/main/home',
             currentPath : ''
         };
 
