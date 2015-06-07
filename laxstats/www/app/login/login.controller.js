@@ -24,10 +24,6 @@
                 $scope.error = true;
             }
         };
-
-        $scope.logout = function() {
-            AuthService.clear();
-        };
     }
 
     angular.module('main.login').controller('LoginCtrl',

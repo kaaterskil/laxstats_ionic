@@ -8,7 +8,6 @@
         };
 
         $scope.logout = function() {
-            console.log('logout called');
             AuthService.clear();
         };
     }
