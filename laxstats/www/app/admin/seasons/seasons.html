@@ -5,10 +5,15 @@
 	
 	<ion-content>
         <ion-list>
+            <ion-item class="item item-icon-right" 
+                      ui-sref="admin.seasons.new">
+                <i class="icon ion-ios-arrow-right"></i>
+                <p>Create New Season</p>
+            </ion-item>
             <ion-item ng-repeat="item in seasons" 
                       class="item item-icon-right"
-                      ui-sref="admin.seasons.detail({ id: item.id })">
-                      <i class="icon ion-ios-arrow-right"></i>
+                      ui-sref="admin.seasons.edit({ id: item.id })">
+                <i class="icon ion-ios-arrow-right"></i>
                 <p>{{::item.description}}</p>
             </ion-item>
         </ion-list>

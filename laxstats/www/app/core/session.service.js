@@ -7,7 +7,7 @@
 
         function getSessionValue(name) {
             if (!name) { return undefined; }
-            return localStorage.getItem(name);
+            return sessionStorage.getItem(name);
         }
 
         function setSessionValue(name, newValue) {
@@ -15,13 +15,13 @@
 
             if (!name) { return undefined; }
 
-            oldValue = localStorage.getItem(name);
-            localStorage.setItem(name, newValue);
+            oldValue = sessionStorage.getItem(name);
+            sessionStorage.setItem(name, newValue);
             return oldValue;
         }
 
         function clear() {
-            localStorage.clear();
+            sessionStorage.clear();
         }
 
         /*---------- Public methods ----------*/

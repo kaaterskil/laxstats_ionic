@@ -13,11 +13,16 @@
                 }
             }
         }).state('admin.seasons.index', {
+            cache : false,
             url : '',
             templateUrl : 'app/admin/seasons/seasons.html',
             controller : 'SeasonsCtrl'
-        }).state('admin.seasons.detail', {
+        }).state('admin.seasons.edit', {
             url : '/:id',
+            templateUrl : 'app/admin/seasons/season.html',
+            controller : 'SeasonEditCtrl'
+        }).state('admin.seasons.new', {
+            url : '/new',
             templateUrl : 'app/admin/seasons/season.html',
             controller : 'SeasonCtrl'
         });

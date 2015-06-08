@@ -1,6 +1,6 @@
 <ion-view title="{{season.description}} Season">
     <ion-content>
-        <form class="list" role="form">
+        <form name="form" class="list" ng-submit="saveOrUpdate(form)" role="form">
             <input type="hidden" 
                    id="id" 
                    ng-model="season.id">
@@ -27,12 +27,14 @@
             <div class="padding">
                 <button type="submit" 
                         class="button button-block button-positive"
-                        ng-click="update()" 
                         ng-if="season.id.length > 0">Save</button>
+                <button type="button"
+                        class="button button-block button-assertive"
+                        ng-click="remove()"
+                        ng-if="season.id.length > 0">Delete</button>
                 <button type="submit" 
                         class="button button-block button-positive"
-                        ng-click="create()" 
-                        ng-if="season.id.length == 0">Create</button>
+                        ng-if="season.id == null || season.id.length == 0">Create</button>
             </div>
         </form>
     </ion-content>

@@ -2,18 +2,14 @@
     'use strict';
 
     function seasonController($scope, $stateParams, $location, Season) {
-        $scope.season = Season.get({
-            id : $stateParams.id
-        });
+        $scope.season = new Season();
 
-        $scope.create = function() {
-            $scope.season.$save();
-            $location.path('/admin/seasons');
-        };
-
-        $scope.update = function() {
-            $scope.season.$update();
-            $location.path('/admin/seasons');
+        $scope.saveOrUpdate = function(form) {
+            if (form.$valid) {
+                $scope.season.$save().then(function(response) {
+                    $location.path('/admin/seasons');
+                });
+            }
         };
     }
 
